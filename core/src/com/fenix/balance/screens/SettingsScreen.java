@@ -15,6 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.fenix.balance.BalanceClass;
 
@@ -93,10 +94,13 @@ class SettingsScreen implements Screen{
         skin.add("roboto", game.font);
 
         //Setup table UI elements
+        Label chooseColour = new Label("Choose a colour:", skin, "roboto", "blue_gray");
         Label confirmSettings = new Label("Done", skin, "roboto", "blue_gray");
 
         //Setting up table contents
         settingsTable.center();
+        settingsTable.add(chooseColour).colspan(4);
+        settingsTable.row();
         settingsTable.add(Amber).pad(20*game.scaling).height(220*game.scaling).width(220*game.scaling);
         settingsTable.add(Blue).pad(20*game.scaling).height(220*game.scaling).width(220*game.scaling);
         settingsTable.add(BlueGray).pad(20*game.scaling).height(220*game.scaling).width(220*game.scaling);
@@ -107,7 +111,7 @@ class SettingsScreen implements Screen{
         settingsTable.add(Purple).pad(20*game.scaling).height(220*game.scaling).width(220*game.scaling);
         settingsTable.add(Red).pad(20*game.scaling).height(220*game.scaling).width(220*game.scaling);
         settingsTable.row();
-        settingsTable.add(confirmSettings).colspan(4);
+        settingsTable.add(confirmSettings).colspan(4).padTop(300*game.scaling);
 
         //Set up colour button listeners
         Amber.addListener(new InputListener(){
